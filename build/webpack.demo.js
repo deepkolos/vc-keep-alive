@@ -15,11 +15,11 @@ module.exports = function(env = {}) {
   base.optimization = {
     minimize: IS_PROD,
     minimizer: [
-      // new UglifyJsPlugin({
-      //   cache: true,
-      //   parallel: true,
-      //   sourceMap: !IS_PROD
-      // }),
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: !IS_PROD
+      }),
       new OptimizeCSSAssetsPlugin({})
     ]
   };
