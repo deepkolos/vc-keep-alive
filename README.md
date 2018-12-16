@@ -2,6 +2,8 @@
 
 ![](https://travis-ci.com/deepkolos/vc-keep-alive.svg?branch=master)
 
+[线上Demo](https://deepkolos.github.io/vc-keep-alive/)
+
 <div style="width: 250px; margin: 0 auto;">
   <img src="https://upload-images.jianshu.io/upload_images/252050-acdf854f3a00d3b0.gif?imageMogr2/auto-orient/strip"/>
 </div>
