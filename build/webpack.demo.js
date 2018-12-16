@@ -35,7 +35,7 @@ module.exports = function(env = {}) {
 
   base.output = {
     path: path.resolve(__dirname, '../dist'),
-    publicPath: '/',
+    publicPath: '/vc-keep-alive/',
     filename: '[name].[hash:6].js',
     chunkFilename: '[name].bundle.[hash:6].js'
   };
