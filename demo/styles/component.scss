@@ -13,6 +13,12 @@
   text-align: center;
   flex: auto;
   font-size: 22px;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .list {
@@ -32,4 +38,10 @@
 
 .block {
   margin: 15px;
+}
+
+.icon-github {
+  margin: 0 10px;
+  width: 29px;
+  filter: invert(1);
 }
