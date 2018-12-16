@@ -1,0 +1,50 @@
+.page {
+  &-init {
+    .page-slide {
+      &-enter-active,
+      &-leave-active {
+        transition: none;
+      }
+    }
+  }
+
+  &-forward .page-slide {
+    &-enter-active {
+      z-index: 1;
+    }
+    &-leave-active {
+      z-index: 0;
+      position: relative;
+    }
+    &-enter {
+      transform: translateX(100%);
+    }
+    &-leave-to {
+      transform: translateX(-30%);
+    }
+  }
+
+  &-backward .page-slide {
+    &-enter-active {
+      z-index: 0;
+    }
+    &-leave-active {
+      z-index: 1;
+      position: relative;
+    }
+    &-enter {
+      transform: translateX(-30%);
+    }
+    &-leave-to {
+      transform: translateX(100%);
+    }
+  }
+}
+
+.page-slide {
+  &-enter-active,
+  &-leave-active {
+    transition: all 0.28s ease 80ms;
+    will-change: transform, opacity;
+  }
+}

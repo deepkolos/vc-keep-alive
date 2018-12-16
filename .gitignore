@@ -1,0 +1,35 @@
+.DS_Store
+.well-known
+
+# node
+node_modules
+npm-debug.log
+.env
+
+# app
+.nginx
+*.nginx.conf
+
+# build
+.ci-task-runner-cache.json
+.uglify-js-cache
+/dist*/
+
+# docs
+/docs/
+
+# IDE
+.idea
+.vscode
+
+*.sublime-project
+*.sublime-workspace
+
+sftp-config.json
+sftp-settings.json
+
+# agentx
+agentx-conf.json
+
+# runtime env
+src/configs/runtime.js
