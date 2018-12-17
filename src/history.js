@@ -39,5 +39,7 @@ bus.on('forward', ({ nextPath }) => {
 
 export const last = (i = 0) => historyStack[historyStack.length - 1 - i];
 export const store = () => {
-  window.sessionStorage.__VCKEEPALIVE__ = JSON.stringify(historyStack);
+  setTimeout(() => {
+    window.sessionStorage.__VCKEEPALIVE__ = JSON.stringify(historyStack);
+  });
 };
