@@ -27,6 +27,10 @@
 
 ### 使用
 
+```shell
+npm install vc-keep-alive
+```
+
 ```vue
 <template>
   <div id="app" :class="pageAct">
