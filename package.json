@@ -11,7 +11,6 @@
     "navigation"
   ],
   "scripts": {
-    "postinstall": "npm run component-entry",
     "component-entry": "node ./build/component-entry.js",
     "build-module": "cross-env NODE_ENV=production && webpack --hide-modules --config ./build/webpack.module.js",
     "build-demo": "cross-env NODE_ENV=production && webpack --env.prod --hide-modules --config ./build/webpack.demo.js",
