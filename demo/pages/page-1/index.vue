@@ -43,7 +43,7 @@ export default {
   },
 
   created() {
-    console.log('page-0 created');
+    console.log('page-1 created');
   }
 };
 </script>
