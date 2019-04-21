@@ -1,6 +1,6 @@
 {
   "name": "vc-keep-alive",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "author": "DeepKolos <deepkolos@qq.com>",
   "main": "lib/vc-keep-alive.js",
