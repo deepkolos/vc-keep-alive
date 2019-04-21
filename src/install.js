@@ -12,6 +12,6 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default {
   install,
-  version,
-  VcKeepAlive
+  version
 };
+export { VcKeepAlive };
