@@ -115,7 +115,7 @@ export default {
   },
 
   destroyed() {
-    off(window, 'resize', this.windowResizer);
+    off(window, 'resize', this.onWindowResize);
   },
 
   mounted() {
@@ -123,18 +123,18 @@ export default {
     this.$canStyle = transform(this.$can);
     this.$pages = this.$refs.container.children;
     this.$indicators = this.$refs.indicators.children;
-    this.inited = false;
+    this.initialized = false;
     this.vmPages = [];
     this.vmIndicators = [];
     this.swipeStartTime = 0;
     this.currSwipeOffset = 0;
     this.pageIndex = this.value;
-    this.durationAjusted;
+    this.durationAdjusted;
 
     this.updateSize();
     this.updatePageLen();
     // this.initPageAround(this.pageIndex);
-    // 初始化的时候子项全部mounted完毕才会到这里mounted
+    // 初始化的时候子项全部 mounted 完毕才会到这里mounted
     // 但是因为依赖的引用没有初始化所以还是需要在这里计算一次
 
     // 初始化
@@ -146,15 +146,15 @@ export default {
     this.planNext();
     this.$nextTick(() => {
       // TODO: 这里有不明确的执行流耦合
-      this.inited = true;
+      this.initialized = true;
     });
 
-    this.windowResizer = () => {
+    this.onWindowResize = () => {
       this.updateSize();
       setTimeout(() => this.updateSize(), 500);
     };
 
-    on(window, 'resize', this.windowResizer);
+    on(window, 'resize', this.onWindowResize);
   },
 
   computed: {
@@ -185,7 +185,7 @@ export default {
       this.$emit('input', val);
       this.initPageAround(val);
       this.animate();
-      this.inited = true;
+      this.initialized = true;
     },
 
     autoPlay() {
@@ -326,7 +326,7 @@ export default {
         rFA(() => {
           this.lastIndex = this.pageIndex;
           this.triggerFromSwipe = true;
-          this.durationAjusted = this.ajustDuration(info);
+          this.durationAdjusted = this.adjustDuration(info);
           this.pageIndex = commitingIndex;
 
           lastIndex === commitingIndex && this.animate();
@@ -355,10 +355,12 @@ export default {
     },
 
     animate() {
-      let duration = this.inited ? this.durationAjusted || this.duration : 0;
+      let duration = this.initialized
+        ? this.durationAdjusted || this.duration
+        : 0;
 
       this.$canStyle.transitionDuration(duration + 'ms');
-      this.durationAjusted = null;
+      this.durationAdjusted = null;
 
       this.planNext();
 
@@ -395,10 +397,10 @@ export default {
 
       // this.triggerFromSwipe = false;
 
-      !this.inited && rFA(this.onFlingDone);
+      !this.initialized && rFA(this.onFlingDone);
     },
 
-    ajustDuration(info) {
+    adjustDuration(info) {
       let duration = this.duration;
       let swipeTime = getNow() - this.swipeStartTime;
       let offsetToAnimate, swipeOffset, _duration;
