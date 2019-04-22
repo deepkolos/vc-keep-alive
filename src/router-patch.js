@@ -137,10 +137,10 @@ function initRootRoutes(router) {
 export const initPatch = (router, vmKeepAlive) => {
   const nextPath = router.history.current.path;
 
+  hook(router);
   initRootRoutes(router);
-  bus.emit('init', { nextPath });
   extend(router.__proto__, 'replace', () => (isReplaceAct = true));
   router.__proto__.getRouterKey = getRouterKey.bind(router, vmKeepAlive);
   router.__proto__.isIgnorePath = isIgnorePath.bind(router, vmKeepAlive);
-  hook(router);
+  bus.emit('init', { nextPath });
 };

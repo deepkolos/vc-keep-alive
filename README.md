@@ -25,7 +25,34 @@
 1. 1. 比如子路由不适用 router-view 来渲染, 而是使用 view-pager 来自行控制,
       支持左右滑动切换, 如果 view-pager 的页面状态是需要保存到 url, 则需要一级路由的一个动态路由占位符, 充当子路由, 所以提供了 ignoreParams 参数
 
-### 使用
+# Props
+
+| 参数         | 类型                  | 默认值 | 可选值 | 描述                                |
+| ------------ | --------------------- | ------ | ------ | ----------------------------------- |
+| ignorePaths  | Array, String, RegExp |        |        | 忽略符合条件的 URL，不压栈          |
+| ignoreParams | Array, String         |        |        | 忽略动态路由参数，不参与 key 的构成 |
+
+# Events
+
+| 事件名   | 参数 | 描述             |
+| -------- | ---- | ---------------- |
+| init     | Info | 组件初始化的时候 |
+| forward  | Info | 路由前进的时候   |
+| replace  | Info | 路由替换的时候   |
+| backward | Info | 路由返回的时候   |
+
+# Event Params: Info
+
+| 参数          | 类型   | 描述        |
+| ------------- | ------ | ----------- |
+| fromPath      | String | 变化前 path |
+| nextPath      | String | 变化后 path |
+| fromRouterKey | String | 变化前 key  |
+| nextRouterKey | String | 变化后 key  |
+
+注: vc-keep-alive 将会把历史栈储存在 SessionStorage 的`__VCKEEPALIVE__`字段里
+
+# Demo Code
 
 ```shell
 npm install vc-keep-alive
@@ -38,10 +65,10 @@ npm install vc-keep-alive
       <vc-keep-alive
         :ignorePaths="ignorePaths"
         :ignoreParams="ignoreParams"
-        @init="log('init', $event);"
-        @forward="log('forward', $event);"
-        @replace="log('replace', $event);"
-        @backward="log('backward', $event);"
+        @init="log('init', $event)"
+        @forward="log('forward', $event)"
+        @replace="log('replace', $event)"
+        @backward="log('backward', $event)"
       >
         <router-view />
       </vc-keep-alive>
@@ -73,3 +100,9 @@ export default {
 };
 </script>
 ```
+
+# TODO
+
+# License
+
+MIT 一起来扣细节~
