@@ -1,6 +1,8 @@
 # vc-keep-alive
 
 ![https://travis-ci.com/deepkolos/vc-keep-alive](https://travis-ci.com/deepkolos/vc-keep-alive.svg?branch=master)
+![](https://img.shields.io/npm/dt/vc-keep-alive.svg)
+![](https://img.shields.io/npm/v/vc-keep-alive.svg)
 
 [Live Demo](https://deepkolos.github.io/vc-keep-alive/)
 
