@@ -49,7 +49,7 @@ export default {
 
     if (componentOptions) {
       const cache = this.cache;
-      const key = (vnode.key = this.router.getRouterKey());
+      const key = (vnode.key = this.router.getRouterKey() || vnode.key);
       if (cache[key]) {
         vnode.componentInstance = cache[key].componentInstance;
 

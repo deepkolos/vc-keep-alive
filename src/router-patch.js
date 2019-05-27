@@ -7,6 +7,8 @@ let routerKeyCache = {};
 let isReplaceAct = false;
 
 function getAncestorRoute(curr) {
+  if (!curr) return;
+
   while (curr.parent) curr = curr.parent;
 
   return curr;
@@ -85,6 +87,8 @@ function getRouterKey(vmKeepAlive, current = this.history.current) {
         return { route, params: route.regex.exec(path + '/') };
       })
       .filter(i => i.params !== null)[0];
+
+    if (!ancestorRoute) return;
 
     if (matchedRoute) {
       urlParams = matchedRoute.params.slice(1);
